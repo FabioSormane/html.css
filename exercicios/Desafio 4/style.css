@@ -65,10 +65,11 @@ a{
     text-decoration: none;
     color: white;
     word-wrap: break-word;
+    transition: background-color 0.5s;
 }
 
 a:hover{
-    text-decoration: underline;
+    background-color: rgb(205, 248, 141);
 }
 .lista{
     background-color: rgb(192, 240, 192);
