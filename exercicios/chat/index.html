@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Conversor de Tempo ⏱️</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:Arial,sans-serif;
+    background:linear-gradient(135deg,#667eea,#764ba2);
+    padding:20px;
+}
+
+.caixa{
+    width:100%;
+    max-width:450px;
+    background:white;
+    padding:40px;
+    border-radius:25px;
+    text-align:center;
+    box-shadow:0 15px 40px #0004;
+}
+
+h1{
+    color:#333;
+    margin-bottom:10px;
+}
+
+.subtitulo{
+    color:#777;
+    margin-bottom:30px;
+}
+
+input,select{
+    width:100%;
+    padding:15px;
+    margin-bottom:15px;
+    border:2px solid #ddd;
+    border-radius:12px;
+    font-size:17px;
+    outline:none;
+}
+
+input:focus,select:focus{
+    border-color:#667eea;
+}
+
+button{
+    width:100%;
+    padding:15px;
+    border:0;
+    border-radius:12px;
+    background:#667eea;
+    color:white;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.2s;
+}
+
+button:hover{
+    background:#5368d8;
+    transform:scale(1.02);
+}
+
+.resultado{
+    margin-top:25px;
+    padding:20px;
+    background:#f2f3ff;
+    border-radius:15px;
+    color:#333;
+}
+
+.numero{
+    font-size:28px;
+    font-weight:bold;
+    color:#667eea;
+}
+</style>
+</head>
+
+<body>
+
+<div class="caixa">
+
+    <h1>⏱️ Conversor de Tempo</h1>
+    <p class="subtitulo">Converta tempo para segundos</p>
+
+    <input type="number" id="tempo" placeholder="Digite o tempo" min="0">
+
+    <select id="unidade">
+        <option value="mes">Meses</option>
+        <option value="hora">Horas</option>
+        <option value="minuto">Minutos</option>
+        <option value="ano">Anos</option>
+    </select>
+
+    <button onclick="converter()">Converter</button>
+
+    <div class="resultado">
+        <p>Resultado:</p>
+        <div class="numero" id="resultado">0 segundos</div>
+    </div>
+
+</div>
+
+<script>
+function converter(){
+
+    let tempo = Number(document.getElementById("tempo").value);
+    let unidade = document.getElementById("unidade").value;
+    let segundos;
+
+    if(unidade === "minuto"){
+        segundos = tempo * 60;
+    }
+
+    if(unidade === "hora"){
+        segundos = tempo * 3600;
+    }
+
+    if(unidade === "mes"){
+        segundos = tempo * 2592000;
+    }
+
+    if(unidade === "ano"){
+        segundos = tempo * 31536000;
+    }
+
+    document.getElementById("resultado").textContent =
+        segundos.toLocaleString("pt-BR") + " segundos";
+}
+</script>
+
+</body>
+</html>

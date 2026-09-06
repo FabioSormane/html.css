@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pseudo-classes</title>
+<style>
+    body{
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    div > p{
+        display: none;
+    }
+    div:hover > p{
+        display: block;
+        background-color: red;
+        width: 2.1em;
+    }
+    #paragrafo{
+        font-size: 3em;
+    }
+</style>
+</head>
+<body>
+    <h1 style="text-align: center;">Palavra escondida</h1>
+    <p>Clique passe o mouse na palavra abaixo para liberar a palavra secreta</p>
+
+    <div>clique aqui <p id="paragrafo"><a href="hover.html" target="_blank" rel="external"><span style="color: white;">sexo</span></a></p>
+</body>
+</html>

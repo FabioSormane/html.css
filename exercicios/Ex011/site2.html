@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Felipe Neto | Redes Sociais</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #0b0b0f;
+            color: white;
+            min-height: 100vh;
+        }
+
+        header {
+            padding: 25px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #25252c;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #e50914;
+        }
+
+        nav a {
+            color: #ccc;
+            text-decoration: none;
+            margin-left: 25px;
+            transition: .3s;
+        }
+
+        nav a:hover {
+            color: #e50914;
+        }
+
+        .hero {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px 20px;
+            background:
+                radial-gradient(circle at center, #2b0b0e 0%, #0b0b0f 55%);
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #e50914;
+        }
+
+        .hero p {
+            color: #bbb;
+            font-size: 19px;
+            line-height: 1.7;
+            margin-bottom: 35px;
+        }
+
+        .button {
+            display: inline-block;
+            background: #e50914;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: .3s;
+        }
+
+        .button:hover {
+            background: #ff2631;
+            transform: translateY(-3px);
+        }
+
+        .socials {
+            padding: 70px 8%;
+            background: #101015;
+        }
+
+        .socials h2 {
+            text-align: center;
+            font-size: 35px;
+            margin-bottom: 45px;
+        }
+
+        .cards {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: #18181f;
+            border: 1px solid #292931;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: .3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: #e50914;
+            box-shadow: 0 10px 30px rgba(229, 9, 20, .15);
+        }
+
+        .icon {
+            font-size: 45px;
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #999;
+            margin-bottom: 22px;
+        }
+
+        .card a {
+            color: white;
+            text-decoration: none;
+            background: #25252d;
+            padding: 10px 20px;
+            border-radius: 6px;
+            display: inline-block;
+            transition: .3s;
+        }
+
+        .card a:hover {
+            background: #e50914;
+        }
+
+        .about {
+            padding: 70px 20px;
+            text-align: center;
+        }
+
+        .about div {
+            max-width: 750px;
+            margin: auto;
+        }
+
+        .about h2 {
+            font-size: 35px;
+            margin-bottom: 20px;
+        }
+
+        .about p {
+            color: #aaa;
+            line-height: 1.8;
+            font-size: 17px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            border-top: 1px solid #25252c;
+            color: #777;
+            font-size: 13px;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 0 7px;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">FELIPE<span>NETO</span></div>
+
+        <nav>
+            <a href="#inicio">Início</a>
+            <a href="#redes">Redes</a>
+            <a href="#sobre">Sobre</a>
+        </nav>
+    </header>
+
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+
+            <h1>Oi, eu sou o <span>Felipe Neto</span></h1>
+
+            <p>
+                Eu produzo conteúdo na internet há muitos anos e utilizo
+                minhas redes sociais para compartilhar vídeos, opiniões,
+                entretenimento e projetos com milhões de pessoas.
+            </p>
+
+            <a href="#redes" class="button">
+                Conheça minhas redes
+            </a>
+
+        </div>
+    </section>
+
+    <section class="socials" id="redes">
+
+        <h2>Minhas Redes Sociais</h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <div class="icon">▶️</div>
+                <h3>YouTube</h3>
+                <p>Meus vídeos, opiniões e conteúdos.</p>
+                <a href="https://www.youtube.com/@FelipeNeto" target="_blank">
+                    Acessar
+                </a>
+            </div>
+
+            <div class="card">
+                <div class="icon">📸</div>
+                <h3>Instagram</h3>
+                <p>Meu dia a dia e conteúdos exclusivos.</p>
+                <a href="https://www.instagram.com/felipeneto/" target="_blank">
+                    Acessar
+                </a>
+            </div>
+
+            <div class="card">
+                <div class="icon">𝕏</div>
+                <h3>X</h3>
+                <p>Onde compartilho minhas opiniões.</p>
+                <a href="https://x.com/felipeneto" target="_blank">
+                    Acessar
+                </a>
+            </div>
+
+            <div class="card">
+                <div class="icon">🎵</div>
+                <h3>TikTok</h3>
+                <p>Vídeos curtos e momentos divertidos.</p>
+                <a href="https://www.tiktok.com/@felipeneto" target="_blank">
+                    Acessar
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="about" id="sobre">
+        <div>
+
+            <h2>Sobre mim</h2>
+
+            <p>
+                Eu comecei minha trajetória na internet criando vídeos
+                e, ao longo dos anos, construí uma das maiores comunidades
+                digitais do Brasil. Hoje continuo produzindo conteúdo,
+                participando de projetos e utilizando a internet para me
+                comunicar diretamente com o meu público.
+            </p>
+
+        </div>
+    </section>
+
+    <footer>
+        Página demonstrativa não oficial. Criada para fins de estudo.
+    </footer>
+
+</body>
+</html>
