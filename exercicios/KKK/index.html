@@ -1,0 +1,1796 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Desafio Blox Fruits — BolinhaDelas244</title>
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        body {
+
+            margin: 0;
+
+            font-family: Arial, Helvetica, sans-serif;
+
+            color: white;
+
+            background-image: url("fundo.webp");
+
+            background-size: cover;
+
+            background-position: center;
+
+            background-attachment: fixed;
+
+            background-repeat: no-repeat;
+
+        }
+
+
+        header {
+
+            text-align: center;
+
+            padding: 35px 20px;
+
+            background: rgba(17, 24, 39, 0.90);
+
+            border-bottom: 2px solid #334155;
+
+        }
+
+
+        header h1 {
+
+            margin: 0 0 10px;
+
+            font-size: 32px;
+
+        }
+
+
+        header p {
+
+            margin: 0;
+
+            color: #cbd5e1;
+
+        }
+
+
+        main {
+
+            width: min(760px, 92%);
+
+            margin: 35px auto;
+
+        }
+
+
+        .card {
+
+            background: rgba(30, 41, 59, 0.90);
+
+            padding: 25px;
+
+            margin-bottom: 22px;
+
+            border-radius: 15px;
+
+            box-shadow:
+                0 8px 25px rgba(0, 0, 0, 0.35);
+
+        }
+
+
+        .card h2 {
+
+            margin-top: 8px;
+
+            line-height: 1.35;
+
+        }
+
+
+        .numero {
+
+            color: #60a5fa;
+
+            font-weight: bold;
+
+        }
+
+
+        label {
+
+            display: block;
+
+            background: #334155;
+
+            padding: 14px;
+
+            margin: 10px 0;
+
+            border-radius: 9px;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+
+        }
+
+
+        label:hover {
+
+            background: #475569;
+
+            transform: translateX(3px);
+
+        }
+
+
+        label.correta {
+
+            background: #166534;
+
+        }
+
+
+        label.errada {
+
+            background: #991b1b;
+
+        }
+
+
+        input[type="radio"] {
+
+            margin-right: 10px;
+
+        }
+
+
+        input[type="text"] {
+
+            width: 100%;
+
+            padding: 14px;
+
+            border: 2px solid #475569;
+
+            border-radius: 9px;
+
+            background: #0f172a;
+
+            color: white;
+
+            font-size: 16px;
+
+            outline: none;
+
+        }
+
+
+        button {
+
+            width: 100%;
+
+            padding: 16px;
+
+            margin-top: 12px;
+
+            border: 0;
+
+            border-radius: 10px;
+
+            background: #2563eb;
+
+            color: white;
+
+            font-size: 17px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+        }
+
+
+        button:hover {
+
+            background: #1d4ed8;
+
+        }
+
+
+        .aviso {
+
+            color: #f87171;
+
+            min-height: 20px;
+
+        }
+
+
+        .hidden {
+
+            display: none;
+
+        }
+
+
+        /* UMA PERGUNTA POR VEZ */
+
+        .pergunta {
+
+            display: none;
+
+        }
+
+
+        .pergunta:first-child {
+
+            display: block;
+
+        }
+
+
+        /* FEEDBACK */
+
+        .feedback {
+
+            min-height: 25px;
+
+            font-size: 18px;
+
+            font-weight: bold;
+
+            text-align: center;
+
+        }
+
+
+        .feedback.certo {
+
+            color: #4ade80;
+
+        }
+
+
+        .feedback.errado {
+
+            color: #f87171;
+
+        }
+
+
+        /* PLACAR */
+
+        .placar {
+
+            position: sticky;
+
+            top: 10px;
+
+            z-index: 10;
+
+            display: flex;
+
+            justify-content: space-around;
+
+            gap: 10px;
+
+            margin-bottom: 20px;
+
+            padding: 14px;
+
+            background: rgba(30, 41, 59, 0.92);
+
+            border: 2px solid #334155;
+
+            border-radius: 12px;
+
+            box-shadow:
+                0 8px 25px rgba(0, 0, 0, 0.35);
+
+            font-size: 16px;
+
+        }
+
+
+        .placar strong {
+
+            color: #60a5fa;
+
+        }
+
+
+        /* RESULTADO */
+
+        #pontuacao {
+
+            font-size: 38px;
+
+            font-weight: bold;
+
+            color: #60a5fa;
+
+            text-align: center;
+
+            margin: 20px 0;
+
+        }
+
+
+        #tituloResultado,
+        #detalhes {
+
+            text-align: center;
+
+        }
+
+
+        @media (max-width: 500px) {
+
+            header h1 {
+
+                font-size: 25px;
+
+            }
+
+
+            .card {
+
+                padding: 18px;
+
+            }
+
+
+            .placar {
+
+                font-size: 13px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <header>
+
+        <h1>🏆 DESAFIO BLOX FRUITS 🏆</h1>
+
+        <p>
+            Questionário oficial de
+            <strong>BolinhaDelas244</strong>
+        </p>
+
+    </header>
+
+
+
+    <main>
+
+
+        <!-- TELA INICIAL -->
+
+        <section id="inicio" class="card">
+
+            <h2>Quem me conhece melhor?</h2>
+
+            <p>
+                Digita seu nome ai
+            </p>
+
+            <input
+                id="nome"
+                type="text"
+                maxlength="30"
+                placeholder="Digita seu nome ai"
+            >
+
+            <button onclick="iniciar()">
+                COMEÇAR
+            </button>
+
+            <p id="aviso" class="aviso"></p>
+
+        </section>
+
+
+
+        <!-- PLACAR -->
+
+        <div id="placar" class="placar hidden">
+
+            <span>
+                🏆 Pontos:
+                <strong id="pontosAtual">0</strong>
+            </span>
+
+            <span>
+                ✅ Acertos:
+                <strong id="acertosAtual">0</strong>
+            </span>
+
+            <span>
+                ❌ Erros:
+                <strong id="errosAtual">0</strong>
+            </span>
+
+        </div>
+
+
+
+        <!-- QUIZ -->
+
+        <form id="quiz" class="quiz hidden">
+
+
+            <!-- PERGUNTA 1 -->
+
+            <div class="pergunta card">
+
+                <span class="numero">
+                    PERGUNTA 1
+                </span>
+
+                <h2>
+                    Como meu pai morreu?
+                </h2>
+
+
+                <label>
+
+                    <input
+                        type="radio"
+                        name="q1"
+                        value="a"
+                    >
+
+                    A — Bala perdida
+
+                </label>
+
+
+                <label>
+
+                    <input
+                        type="radio"
+                        name="q1"
+                        value="b"
+                    >
+
+                    B — Suicídio
+
+                </label>
+
+
+                <label>
+
+                    <input
+                        type="radio"
+                        name="q1"
+                        value="c"
+                    >
+
+                    C — Punheta excessiva
+
+                </label>
+
+
+                <label>
+
+                    <input
+                        type="radio"
+                        name="q1"
+                        value="d"
+                    >
+
+                    D — Estupr*do
+
+                </label>
+
+
+                <p class="feedback"></p>
+
+
+                <button
+                    type="button"
+                    onclick="proximaPergunta()"
+                >
+
+                    PRÓXIMA →
+
+                </button>
+
+            </div>
+
+
+
+            <!-- PERGUNTA 2 -->
+
+            <div class="pergunta card">
+
+                <span class="numero">
+                    PERGUNTA 2
+                </span>
+
+                <h2>
+                    Kkkkk a anterior foi difícil né?
+                    Enfim, eu sou um bom amigo?
+                </h2>
+
+
+                <label>
+
+                    <input
+                        type="radio"
+                        name="q2"
+                        value="a"
+                    >
+
+                    A — Sim
+
+                </label>
+
+
+                <label>
+
+                    <input
+                        type="radio"
+                        name="q2"
+                        value="b"
+                    >
+
+                    B — Não
+
+                </label>
+
+
+                <label>
+
+                    <input
+                        type="radio"
+                        name="q2"
+                        value="c"
+                    >
+
+                    C — Talvez
+
+                </label>
+
+
+                <label>
+
+                    <input
+                        type="radio"
+                        name="q2"
+                        value="d"
+                    >
+
+                    D — Às vezes
+
+                </label>
+
+
+                <p class="feedback"></p>
+
+
+                <button
+                    type="button"
+                    onclick="proximaPergunta()"
+                >
+
+                    PRÓXIMA →
+
+                </button>
+
+            </div>
+
+
+
+            <!-- PERGUNTA 3 -->
+
+            <div class="pergunta card">
+
+                <span class="numero">
+                    PERGUNTA 3
+                </span>
+
+                <h2>
+                    Eu sou gordo?
+                </h2>
+
+
+                <label>
+
+                    <input
+                        type="radio"
+                        name="q3"
+                        value="a"
+                    >
+
+                    A — P/ krlhkkkkkk
+
+                </label>
+
+
+                <label>
+
+                    <input
+                        type="radio"
+                        name="q3"
+                        value="b"
+                    >
+
+                    B — Não, vc é lindo
+
+                </label>
+
+
+                <label>
+
+                    <input
+                        type="radio"
+                        name="q3"
+                        value="c"
+                    >
+
+                    C — Só um pouco
+
+                </label>
+
+
+                <label>
+
+                    <input
+                        type="radio"
+                        name="q3"
+                        value="d"
+                    >
+
+                    D — Sim, mas te amo
+
+                </label>
+
+
+                <p class="feedback"></p>
+
+
+                <button
+                    type="button"
+                    onclick="proximaPergunta()"
+                >
+
+                    PRÓXIMA →
+
+                </button>
+
+            </div>
+
+
+
+            <!-- PERGUNTA 4 -->
+
+            <div class="pergunta card">
+
+                <span class="numero">
+                    PERGUNTA 4
+                </span>
+
+                <h2>
+                    Qual a cor da blusa que eu estava
+                    usando na call HOJE?
+                </h2>
+
+
+                <label>
+
+                    <input
+                        type="radio"
+                        name="q4"
+                        value="a"
+                    >
+
+                    A — Preta
+
+                </label>
+
+
+                <label>
+
+                    <input
+                        type="radio"
+                        name="q4"
+                        value="b"
+                    >
+
+                    B — Kaio
+
+                </label>
+
+
+                <label>
+
+                    <input
+                        type="radio"
+                        name="q4"
+                        value="c"
+                    >
+
+                    C — Tio do Kaio
+
+                </label>
+
+
+                <label>
+
+                    <input
+                        type="radio"
+                        name="q4"
+                        value="d"
+                    >
+
+                    D — Pênis do Kaio
+
+                </label>
+
+
+                <p class="feedback"></p>
+
+
+                <button
+                    type="button"
+                    onclick="proximaPergunta()"
+                >
+
+                    PRÓXIMA →
+
+                </button>
+
+            </div>
+
+
+
+            <!-- PERGUNTA 5 -->
+
+            <div class="pergunta card">
+
+                <span class="numero">
+                    PERGUNTA 5
+                </span>
+
+                <h2>
+                    Última questão...........
+                    quem vai ganhar essa Gamepass?
+                </h2>
+
+
+                <label>
+
+                    <input
+                        type="radio"
+                        name="q5"
+                        value="a"
+                    >
+
+                    A — Kaio
+
+                </label>
+
+
+                <label>
+
+                    <input
+                        type="radio"
+                        name="q5"
+                        value="b"
+                    >
+
+                    B — Arthur
+
+                </label>
+
+
+                <label>
+
+                    <input
+                        type="radio"
+                        name="q5"
+                        value="c"
+                    >
+
+                    C — Ninguém
+
+                </label>
+
+
+                <label>
+
+                    <input
+                        type="radio"
+                        name="q5"
+                        value="d"
+                    >
+
+                    D — A verdadeira Gamepass são os
+                    amigos que fizemos pelo caminho
+
+                </label>
+
+
+                <p class="feedback"></p>
+
+
+                <button
+                    type="button"
+                    onclick="finalizar()"
+                >
+
+                    FINALIZAR QUESTIONÁRIO
+
+                </button>
+
+            </div>
+
+
+        </form>
+
+
+
+        <!-- SEGUNDA CHANCE -->
+
+        <section
+            id="segundaChance"
+            class="card hidden"
+        >
+
+            <h2>
+                VAI SE FUDER, GORDA É SUA TIA MACUMBEIRA
+            </h2>
+
+            <p>
+                Você ainda tem uma segunda chance.
+            </p>
+
+            <button onclick="voltarSegundaChance()">
+                sua segunda chance, fdp
+            </button>
+
+        </section>
+
+
+
+        <!-- RESULTADO -->
+
+        <section
+            id="resultado"
+            class="card hidden"
+        >
+
+            <h2 id="tituloResultado"></h2>
+
+            <div id="pontuacao"></div>
+
+            <p id="detalhes"></p>
+
+        </section>
+
+
+    </main>
+
+
+
+    <script>
+
+
+        /* GABARITO */
+
+        const gabarito = {
+
+            q1: ["d"],
+
+            q2: ["a"],
+
+            q3: ["b"],
+
+            q4: ["a", "b", "c", "d"],
+
+            q5: ["d"]
+
+        };
+
+
+
+        let perguntaAtual = 0;
+
+        let nomeAtual = "";
+
+        let pontos = 0;
+
+        let acertos = 0;
+
+        let erros = 0;
+
+
+
+        /*
+            CONTROLA A SEGUNDA CHANCE
+        */
+
+        let segundaChanceUsada = false;
+
+
+
+        /* CRIA A CHAVE DO JOGADOR */
+
+        function chaveUsuario(nome) {
+
+            return "bolinha_questionario_" +
+                nome.trim().toLowerCase();
+
+        }
+
+
+
+        /* COMEÇAR */
+
+        function iniciar() {
+
+            const nomeInput =
+                document.getElementById("nome");
+
+            const nome =
+                nomeInput.value.trim();
+
+            const aviso =
+                document.getElementById("aviso");
+
+
+            if (!nome) {
+
+                aviso.textContent =
+                    "Digite seu nome para começar.";
+
+                return;
+
+            }
+
+
+
+            /* VERIFICA SE JÁ RESPONDEU */
+
+            const dadosSalvos =
+                localStorage.getItem(
+                    chaveUsuario(nome)
+                );
+
+
+            if (dadosSalvos) {
+
+                const dados =
+                    JSON.parse(dadosSalvos);
+
+                aviso.textContent =
+                    `Você já respondeu otario ` +
+                    `Sua pontuação foi ${dados.pontos}/5.`;
+
+                return;
+
+            }
+
+
+
+            /* ZERA OS VALORES */
+
+            nomeAtual = nome;
+
+            perguntaAtual = 0;
+
+            pontos = 0;
+
+            acertos = 0;
+
+            erros = 0;
+
+            segundaChanceUsada = false;
+
+
+            atualizarPlacar();
+
+
+
+            /* ESCONDE INÍCIO */
+
+            document
+                .getElementById("inicio")
+                .classList.add("hidden");
+
+
+
+            /* MOSTRA QUIZ */
+
+            document
+                .getElementById("quiz")
+                .classList.remove("hidden");
+
+
+
+            /* MOSTRA PLACAR */
+
+            document
+                .getElementById("placar")
+                .classList.remove("hidden");
+
+
+            mostrarPergunta();
+
+
+
+            window.scrollTo({
+
+                top: 0,
+
+                behavior: "smooth"
+
+            });
+
+        }
+
+
+
+        /* MOSTRA UMA PERGUNTA */
+
+        function mostrarPergunta() {
+
+            const perguntas =
+                document.querySelectorAll(
+                    ".pergunta"
+                );
+
+
+            perguntas.forEach(
+                (pergunta, indice) => {
+
+                    if (
+                        indice === perguntaAtual
+                    ) {
+
+                        pergunta.style.display =
+                            "block";
+
+                    }
+
+                    else {
+
+                        pergunta.style.display =
+                            "none";
+
+                    }
+
+                }
+            );
+
+        }
+
+
+
+        /*
+            FUNÇÃO DA QUESTÃO 3
+        */
+
+        function verificarQuestao3(resposta) {
+
+
+            /*
+                SE NÃO FOR A,
+                DEIXA O SISTEMA NORMAL
+            */
+
+            if (resposta.value !== "a") {
+
+                return false;
+
+            }
+
+
+
+            /*
+                PRIMEIRA VEZ QUE CLICOU EM A
+            */
+
+            if (!segundaChanceUsada) {
+
+                segundaChanceUsada = true;
+
+
+                document
+                    .getElementById("quiz")
+                    .classList.add("hidden");
+
+
+                document
+                    .getElementById("placar")
+                    .classList.add("hidden");
+
+
+                document
+                    .getElementById("segundaChance")
+                    .classList.remove("hidden");
+
+
+                window.scrollTo({
+
+                    top: 0,
+
+                    behavior: "smooth"
+
+                });
+
+
+                return true;
+
+            }
+
+
+
+            /*
+                SEGUNDA VEZ QUE CLICOU EM A
+            */
+
+            document
+                .getElementById("quiz")
+                .classList.add("hidden");
+
+
+            document
+                .getElementById("placar")
+                .classList.add("hidden");
+
+
+            document
+                .getElementById("segundaChance")
+                .classList.add("hidden");
+
+
+            document
+                .getElementById("resultado")
+                .classList.remove("hidden");
+
+
+            document
+                .getElementById("tituloResultado")
+                .textContent =
+                "VSFD, NAO VAI GANHAR PORRA NENHUMA";
+
+
+            document
+                .getElementById("pontuacao")
+                .textContent =
+                "DESAFIO PERDIDO";
+
+
+            document
+                .getElementById("detalhes")
+                .textContent =
+                `${nomeAtual}, você teve uma segunda chance e fez a mesma merda.`;
+
+
+
+            /*
+                SALVA QUE PERDEU
+            */
+
+            localStorage.setItem(
+
+                chaveUsuario(nomeAtual),
+
+                JSON.stringify({
+
+                    nome: nomeAtual,
+
+                    pontos: pontos,
+
+                    acertos: acertos,
+
+                    erros: erros,
+
+                    perdeu: true,
+
+                    data:
+                        new Date().toLocaleString(
+                            "pt-BR"
+                        )
+
+                })
+
+            );
+
+
+            window.scrollTo({
+
+                top: 0,
+
+                behavior: "smooth"
+
+            });
+
+
+            return true;
+
+        }
+
+
+
+        /*
+            VOLTAR PARA A QUESTÃO 2
+        */
+
+        function voltarSegundaChance() {
+
+
+            /*
+                ESCONDE A MENSAGEM
+            */
+
+            document
+                .getElementById("segundaChance")
+                .classList.add("hidden");
+
+
+            /*
+                MOSTRA O QUIZ
+            */
+
+            document
+                .getElementById("quiz")
+                .classList.remove("hidden");
+
+
+            /*
+                MOSTRA O PLACAR
+            */
+
+            document
+                .getElementById("placar")
+                .classList.remove("hidden");
+
+
+
+            /*
+                VOLTA PARA A QUESTÃO 2
+            */
+
+            perguntaAtual = 1;
+
+
+
+            /*
+                AQUI ESTÁ A CORREÇÃO DO ERRO:
+
+                limpa a questão 3 para que a
+                alternativa A não fique marcada.
+            */
+
+            const questao3 =
+                document.querySelectorAll(
+                    ".pergunta"
+                )[2];
+
+
+            const opcoesQ3 =
+                questao3.querySelectorAll(
+                    "input[type='radio']"
+                );
+
+
+            opcoesQ3.forEach(opcao => {
+
+                opcao.checked = false;
+
+                opcao.disabled = false;
+
+            });
+
+
+
+            /*
+                LIMPA AS CORES DAS RESPOSTAS
+            */
+
+            const labelsQ3 =
+                questao3.querySelectorAll(
+                    "label"
+                );
+
+
+            labelsQ3.forEach(label => {
+
+                label.classList.remove(
+                    "correta"
+                );
+
+                label.classList.remove(
+                    "errada"
+                );
+
+            });
+
+
+
+            /*
+                LIMPA A MENSAGEM DA QUESTÃO 3
+            */
+
+            const feedbackQ3 =
+                questao3.querySelector(
+                    ".feedback"
+                );
+
+
+            feedbackQ3.textContent = "";
+
+            feedbackQ3.className =
+                "feedback";
+
+
+
+            /*
+                MOSTRA A QUESTÃO 2
+            */
+
+            mostrarPergunta();
+
+
+            window.scrollTo({
+
+                top: 0,
+
+                behavior: "smooth"
+
+            });
+
+        }
+
+
+
+        /* CORRIGE A RESPOSTA */
+
+        function responder(pergunta) {
+
+            const resposta =
+                pergunta.querySelector(
+                    "input:checked"
+                );
+
+
+            if (!resposta) {
+
+                return;
+
+            }
+
+
+            const nomePergunta =
+                resposta.name;
+
+
+            const estaCerta =
+                gabarito[nomePergunta]
+                    .includes(resposta.value);
+
+
+            const feedback =
+                pergunta.querySelector(
+                    ".feedback"
+                );
+
+
+            const labels =
+                pergunta.querySelectorAll(
+                    "label"
+                );
+
+
+
+            /* MOSTRA AS RESPOSTAS */
+
+            labels.forEach(label => {
+
+                const input =
+                    label.querySelector(
+                        "input"
+                    );
+
+
+                /* RESPOSTA CERTA = VERDE */
+
+                if (
+                    gabarito[nomePergunta]
+                        .includes(input.value)
+                ) {
+
+                    label.classList.add(
+                        "correta"
+                    );
+
+                }
+
+
+                /* RESPOSTA ERRADA = VERMELHO */
+
+                if (
+                    input.checked &&
+                    !estaCerta
+                ) {
+
+                    label.classList.add(
+                        "errada"
+                    );
+
+                }
+
+
+                /* NÃO DEIXA TROCAR */
+
+                input.disabled = true;
+
+            });
+
+
+
+            /* ACERTOU */
+
+            if (estaCerta) {
+
+                pontos++;
+
+                acertos++;
+
+
+                feedback.textContent =
+                    "✅ ACERTOU! +1 PONTO";
+
+
+                feedback.className =
+                    "feedback certo";
+
+            }
+
+
+
+            /* ERROU */
+
+            else {
+
+                erros++;
+
+
+                feedback.textContent =
+                    "❌ ERROU! +0 PONTOS";
+
+
+                feedback.className =
+                    "feedback errado";
+
+            }
+
+
+
+            /* ATUALIZA PLACAR */
+
+            atualizarPlacar();
+
+        }
+
+
+
+        /* ATUALIZA O PLACAR */
+
+        function atualizarPlacar() {
+
+            document
+                .getElementById("pontosAtual")
+                .textContent = pontos;
+
+
+            document
+                .getElementById("acertosAtual")
+                .textContent = acertos;
+
+
+            document
+                .getElementById("errosAtual")
+                .textContent = erros;
+
+        }
+
+
+
+        /* DETECTA QUANDO CLICA NA RESPOSTA */
+
+        document.addEventListener(
+
+            "change",
+
+            function(event) {
+
+
+                if (
+                    event.target.type !== "radio"
+                ) {
+
+                    return;
+
+                }
+
+
+
+                const pergunta =
+                    event.target.closest(
+                        ".pergunta"
+                    );
+
+
+                if (!pergunta) {
+
+                    return;
+
+                }
+
+
+
+                /*
+                    QUESTÃO 3 + ALTERNATIVA A
+                */
+
+                if (
+                    event.target.name === "q3" &&
+                    event.target.value === "a"
+                ) {
+
+                    verificarQuestao3(
+                        event.target
+                    );
+
+                    return;
+
+                }
+
+
+
+                /*
+                    TODAS AS OUTRAS
+                    FUNCIONAM NORMALMENTE
+                */
+
+                responder(pergunta);
+
+            }
+
+        );
+
+
+
+        /* PRÓXIMA PERGUNTA */
+
+        function proximaPergunta() {
+
+            const perguntas =
+                document.querySelectorAll(
+                    ".pergunta"
+                );
+
+
+            const pergunta =
+                perguntas[perguntaAtual];
+
+
+            const resposta =
+                pergunta.querySelector(
+                    "input:checked"
+                );
+
+
+            /* NÃO DEIXA PULAR */
+
+            if (!resposta) {
+
+                alert(
+                    "❌ Responde a pergunta porra"
+                );
+
+                return;
+
+            }
+
+
+            perguntaAtual++;
+
+
+            mostrarPergunta();
+
+
+            window.scrollTo({
+
+                top: 0,
+
+                behavior: "smooth"
+
+            });
+
+        }
+
+
+
+        /* FINALIZAR */
+
+        function finalizar() {
+
+            const perguntas =
+                document.querySelectorAll(
+                    ".pergunta"
+                );
+
+
+            const pergunta =
+                perguntas[perguntaAtual];
+
+
+            const resposta =
+                pergunta.querySelector(
+                    "input:checked"
+                );
+
+
+            /* NÃO DEIXA FINALIZAR SEM RESPONDER */
+
+            if (!resposta) {
+
+                alert(
+                    "❌ Responde a pergunta porra"
+                );
+
+                return;
+
+            }
+
+
+
+            /* SALVA RESULTADO */
+
+            const dados = {
+
+                nome: nomeAtual,
+
+                pontos: pontos,
+
+                acertos: acertos,
+
+                erros: erros,
+
+                data:
+                    new Date().toLocaleString(
+                        "pt-BR"
+                    )
+
+            };
+
+
+            localStorage.setItem(
+
+                chaveUsuario(nomeAtual),
+
+                JSON.stringify(dados)
+
+            );
+
+
+
+            /* ESCONDE QUIZ */
+
+            document
+                .getElementById("quiz")
+                .classList.add("hidden");
+
+
+            /* ESCONDE PLACAR */
+
+            document
+                .getElementById("placar")
+                .classList.add("hidden");
+
+
+            /* MOSTRA RESULTADO */
+
+            document
+                .getElementById("resultado")
+                .classList.remove("hidden");
+
+
+
+            /* MOSTRA PONTUAÇÃO */
+
+            document
+                .getElementById("pontuacao")
+                .textContent =
+                `${pontos} / 5`;
+
+
+
+            let titulo;
+
+
+
+            if (pontos === 5) {
+
+                titulo =
+                    "BOA! ACERTO TUDO, MEU CUZINHO É SEU";
+
+            }
+
+
+            else if (pontos >= 3) {
+
+                titulo =
+                    "Meehh.... ate q foi bem";
+
+            }
+
+
+            else if (pontos >= 1) {
+
+                titulo =
+                    `Noussa, que merda hein ${nomeAtual}`;
+
+            }
+
+
+            else {
+
+                titulo =
+                    "Você errou tudo... hoje não tem :(";
+
+            }
+
+
+
+            document
+                .getElementById("tituloResultado")
+                .textContent = titulo;
+
+
+
+            window.scrollTo({
+
+                top: 0,
+
+                behavior: "smooth"
+
+            });
+
+        }
+
+    </script>
+
+</body>
+
+</html>
