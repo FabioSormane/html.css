@@ -3,15 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>desafio4</title>
+    <title>SiteDroidFabio</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header>
        
+        <script>
+            var nome = prompt("Olá, primeiramente, me diga seu nome")
+        </script>
+
             <h1 id="primeiro">CURIOSIDADES DE TECNOLOGIA</h1>
-            <h2 id="segundo">Tudo aquilo que você sempre quis saber sobre o mundo <br>Tech, em um único lugar</h2>
+            <script>
+             document.writeln(`<h2 id="segundo">Olá <strong>${nome.toLocaleUpperCase()}</strong>, seja bem vindo ao nosso site!</h2>`)
+        </script>
+            
 
                 <nav>
             <a href="#home">Home</a>
